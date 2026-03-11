@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  
 </head>
 <body>
 
@@ -155,8 +154,7 @@
 
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 <script>
-const qrURL = `${window.location.origin}/login.html?token=${adminToken}`;
-const socket = io(window.location.origin);
+const socket     = io(window.location.origin);
 let adminToken   = sessionStorage.getItem('adminToken');
 let qrGenerated  = false;
 let sessionAlive = false;
@@ -221,7 +219,7 @@ function showPage(page) {
     document.getElementById('sbQR').classList.add('active');
 
     if (!qrGenerated && adminToken && sessionAlive) {
-      const qrURL = `http://localhost:5000/login.html?token=${adminToken}`;
+      const qrURL = `${window.location.origin}/login.html?token=${adminToken}`;
       new QRCode(document.getElementById('qrcode'), {
         text: qrURL,
         width: 220, height: 220,
