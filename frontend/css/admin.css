@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════════
+   admin.css — Styles specific to admin.html
+   Companion to style.css
+═══════════════════════════════════════════════ */
 
 /* ── Sidebar bottom section ── */
 .sidebar-bottom {
@@ -218,4 +222,47 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE TOP BAR & MENU (admin.html)
+═══════════════════════════════════════════════ */
+.mobile-topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.mobile-menu-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--ink);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .mobile-topbar { display: flex; }
 }
