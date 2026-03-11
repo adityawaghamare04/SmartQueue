@@ -64,7 +64,7 @@ io.on("connection", (socket) => {
         absent           = [];
         console.log(`\n✅ Admin logged in (new session)`);
         console.log(`🔑 Token: ${sessionToken}`);
-        console.log(`📷 QR: http://localhost:5000/login.html?token=${sessionToken}\n`);
+        console.log(`📷 QR: ${BASE_URL}/login.html?token=${sessionToken}\n`);
         broadcast();
         broadcastSession();
       } else {
