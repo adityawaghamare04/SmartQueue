@@ -207,7 +207,9 @@ socket.on('tokenValid', (valid) => {
    SESSION TERMINATED mid-flow
 ════════════════════════════════════════ */
 socket.on('sessionStatus', ({ active }) => {
-  if (!active && flowStarted) {
+  if (active) {
+    sessionWasLive = true;
+  } else if (sessionWasLive && flowStarted) {
     showScreen('screenTerminated');
     stopScanner();
   }
