@@ -155,7 +155,7 @@
 
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 <script>
-  
+const qrURL = `${window.location.origin}/login.html?token=${adminToken}`;
 const socket = io(window.location.origin);
 let adminToken   = sessionStorage.getItem('adminToken');
 let qrGenerated  = false;
