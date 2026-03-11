@@ -49,6 +49,20 @@
   <!-- ── MAIN ── -->
   <main class="admin-main">
 
+    <!-- ── MOBILE TOP BAR ── -->
+    <div class="mobile-topbar">
+      <a href="#" class="nav-logo" style="font-family:'Playfair Display',serif;font-size:20px;color:var(--accent);text-decoration:none">Smart<span style="color:var(--accent-2);font-style:italic">Queue</span></a>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
+    </div>
+
+    <!-- ── MOBILE MENU DROPDOWN ── -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="sb-item" onclick="showPage('queue');toggleMobileMenu()">📋 Queue Manager</div>
+      <div class="sb-item" onclick="showPage('qr');toggleMobileMenu()">📷 QR Code</div>
+      <div class="sb-item" onclick="terminateSession()">🔴 Terminate Session</div>
+      <a href="adminlogin.html" onclick="sessionStorage.removeItem('adminToken')" class="sb-item" style="color:rgba(255,255,255,0.5);text-decoration:none">Sign out</a>
+    </div>
+
     <!-- ── PAGE: QUEUE MANAGER ── -->
     <div id="pageQueue">
       <div class="admin-header">
@@ -154,7 +168,6 @@
 
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 <script>
-
 const socket     = io(window.location.origin);
 let adminToken   = sessionStorage.getItem('adminToken');
 let qrGenerated  = false;
@@ -283,6 +296,11 @@ function fillList(listId, countId, users, type) {
 
 function markCompleted() { socket.emit('markCompleted'); }
 function markAbsent()    { socket.emit('markAbsent');    }
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
 </script>
 
 </body>
