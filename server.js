@@ -7,8 +7,7 @@ const { Server } = require("socket.io");
 const app    = express();
 const server = http.createServer(app);
 const io     = new Server(server, { cors: { origin: "*" } });
-
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 // ── State ──────────────────────────────────────────
 const ADMIN_USER = "admin";
